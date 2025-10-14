@@ -10,7 +10,8 @@ metadata resources = {
 targetScope = 'subscription'
 
 @allowed([
-  'westeurope'
+  'westeurope',
+  'uksouth'
 ])
 @description('Region in which the workload should be deployed')
 param resourceLocation string

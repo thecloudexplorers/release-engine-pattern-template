@@ -1,0 +1,17 @@
+# Reference the release engine template and provide workload settings
+resources:
+  repositories:
+    - repository: release-engine
+      type: github
+      name: thecloudexplorers/release-engine
+
+stages:
+  - template: pipelines/01-workloads/alz.platform.workload.yml@release-engine
+    parameters:
+      workloadSettings:
+        configurationFilePath: /_config
+        environments:
+          - dev
+          - prod
+        deploymentScript:
+          - name: example_workload            

@@ -4,6 +4,7 @@ resources:
     - repository: release-engine
       type: github
       name: thecloudexplorers/release-engine
+      endpoint: thecloudexplorers
 
 stages:
   - template: pipelines/01-workloads/alz.platform.workload.yml@release-engine

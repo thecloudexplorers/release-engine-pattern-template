@@ -14,6 +14,7 @@ stages:
         configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
         workloadDefinitionRepositoryName: release-engine-example-workload-pattern
         environments: ${{ parameters.platformWorkloadSettings.environments }}
+        workloadArtifactsPath: $(Pipeline.Workspace)/s/release-engine-example-workload-pattern/patterns/example_pattern
         stages:
           # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
           # - ${{ each collectionItem in parameters.platformWorkloadSettings.collection }}:
@@ -26,6 +27,6 @@ stages:
                 iacArtifactsDirectory: /$(workload)/patterns/example_pattern
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
                 iacParameterFilesDirectory: /iac/
-                workloadArtifactsPath: $(Pipeline.Workspace)/s/release-engine-example-workload-pattern/patterns/example_pattern
+                
                 # Use to override bicep parameters
                 # customBicepParameters: '@{<param name>="$(<param value>)"}'

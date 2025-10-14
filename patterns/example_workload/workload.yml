@@ -12,7 +12,7 @@ stages:
       workloadSettings:
         name: example_workload
         configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        workloadDefinitionRepositoryName: release-engine-example-workload-pattern
+        workloadDefinitionRepositoryName: set-example_workload-definition
         environments: ${{ parameters.platformWorkloadSettings.environments }}
         stages:
           # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
@@ -22,8 +22,8 @@ stages:
                 name: example_workload
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: workload.bicep
-                iacArtifactsDirectory: /$(workload)/patterns/example_workload
+                iacMainFileName: workloadTemplate.module.bicep
+                iacArtifactsDirectory: /$(workload)/iac/az-resource-patterns/example_workload
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
                 iacParameterFilesDirectory: /iac/
                 # Use to override bicep parameters

@@ -23,7 +23,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacArtifactsDirectory: /$(workload)/iac/az-resource-patterns/example_workload
+                iacArtifactsDirectory: /$(workload)/patterns/example_workload
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
                 iacParameterFilesDirectory: /iac/
                 workloadArtifactsPath: /patterns/example_workload

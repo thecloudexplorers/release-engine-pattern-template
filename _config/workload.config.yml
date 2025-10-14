@@ -1,2 +1,2 @@
 variables:
-  workloadDefinitionRepositoryName: set-example_workload-definition
+  workloadDefinitionRepositoryName: release-engine-example-workload-pattern

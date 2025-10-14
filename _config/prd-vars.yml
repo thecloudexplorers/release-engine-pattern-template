@@ -1,4 +1,0 @@
-# Example prod environment variables
-appName: example-prod-app
-location: uksouth
-resourceGroup: example-prod-rg

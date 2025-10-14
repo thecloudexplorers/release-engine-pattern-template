@@ -5,6 +5,7 @@ resources:
       type: github
       name: thecloudexplorers/release-engine
       endpoint: thecloudexplorers
+      ref: refs/head/users/wcamargo/examples
 
 stages:
   - template: pipelines/01-workloads/alz.platform.workload.yml@release-engine

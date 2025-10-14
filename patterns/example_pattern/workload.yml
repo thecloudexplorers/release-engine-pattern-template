@@ -14,7 +14,7 @@ stages:
         configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
         workloadDefinitionRepositoryName: release-engine-example-workload-pattern
         environments: ${{ parameters.platformWorkloadSettings.environments }}
-        workloadArtifactsPath: $(Pipeline.Workspace)/s/release-engine-example-workload-pattern/patterns/example_pattern
+        workloadArtifactsPath: /patterns/example_pattern
         stages:
           # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
           # - ${{ each collectionItem in parameters.platformWorkloadSettings.collection }}:

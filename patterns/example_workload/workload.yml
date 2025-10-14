@@ -22,9 +22,10 @@ stages:
                 name: example_workload
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: pattern.bicep
+                iacMainFileName: workload.bicep
                 iacArtifactsDirectory: /$(workload)/iac/az-resource-patterns/example_workload
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
                 iacParameterFilesDirectory: /iac/
+                workloadArtifactsPath: /patterns/example_workload
                 # Use to override bicep parameters
                 # customBicepParameters: '@{<param name>="$(<param value>)"}'

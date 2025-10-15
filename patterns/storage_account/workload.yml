@@ -1,0 +1,26 @@
+parameters:
+  - name: platformWorkloadSettings
+    type: object
+
+variables:
+  - name: serviceConnection
+    value: ssc-set-dev-sp001 # Must be replaced by the Workload dedicated SPN of the lowest environment . It is used for validate the pipeline run, and will be overriden by the correct SPN of each environment on runtime
+
+stages:
+  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine
+    parameters:
+      workloadSettings:
+        name: storage_account
+        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
+        workloadDefinitionRepositoryName: release-engine-example-workload-pattern
+        environments: ${{ parameters.platformWorkloadSettings.environments }}
+        workloadArtifactsPath: /patterns/storage_account
+        stages:
+          - infrastructure:
+              iac:
+                name: storage_account
+                deploymentScope: Subscription
+                serviceConnection: $(serviceConnection)
+                iacMainFileName: workload.bicep
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFilesDirectory: /iac/

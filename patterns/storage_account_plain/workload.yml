@@ -18,7 +18,7 @@ stages:
           - infrastructure:
               iac:
                 name: storage_account_plain
-                deploymentScope: Subscription
+                deploymentScope: ResourceGroup
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}

@@ -12,7 +12,6 @@ stages:
       workloadSettings:
         name: example_pattern
         configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        workloadDefinitionRepositoryName: release-engine-example-workload-pattern
         environments: ${{ parameters.platformWorkloadSettings.environments }}
         workloadArtifactsPath: /patterns/example_pattern
         stages:

@@ -12,7 +12,6 @@ stages:
       workloadSettings:
         name: storage_account
         configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        workloadDefinitionRepositoryName: release-engine-example-workload-pattern
         environments: ${{ parameters.platformWorkloadSettings.environments }}
         workloadArtifactsPath: /patterns/storage_account
         stages:

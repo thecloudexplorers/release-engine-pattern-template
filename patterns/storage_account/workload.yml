@@ -22,4 +22,3 @@ stages:
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
-                iacParameterFilesDirectory: /iac/

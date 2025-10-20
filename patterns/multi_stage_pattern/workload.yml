@@ -21,7 +21,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep                
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}                
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.sub_creation.fileName }}                
 
           - infrastructure:
               iac:
@@ -29,7 +29,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp1.fileName }}
                 dependsOn: sub_creation
                 lastInStage: true 
 
@@ -39,7 +39,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp2.fileName }}
                 dependsOn: stamp1
                 lastInStage: true
 
@@ -49,6 +49,6 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp3.fileName }}
                 dependsOn: sub_creation
                 lastInStage: true                

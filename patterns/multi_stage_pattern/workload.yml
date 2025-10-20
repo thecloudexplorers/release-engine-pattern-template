@@ -7,7 +7,7 @@ variables:
     value: ssc-set-dev-sp001 # Must be replaced by the Workload dedicated SPN of the lowest environment . It is used for validate the pipeline run, and will be overriden by the correct SPN of each environment on runtime
 
 stages:
-  - stage: debug_stage
+  - stage: debug_stage_workload
     displayName: Debug Stage
     condition: eq( variables['System.Debug'], 'true' )
     jobs:

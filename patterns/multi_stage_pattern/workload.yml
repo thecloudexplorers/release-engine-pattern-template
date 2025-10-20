@@ -23,7 +23,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: prerequisite.bicep
-                iacParameterFileName: /parameters/prerequisite_stage.parameters.json
+                iacParameterFileName: /parameters/prerequisite.parameters.json
 
           - infrastructure:
               iac:

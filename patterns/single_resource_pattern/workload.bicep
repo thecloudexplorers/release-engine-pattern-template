@@ -2,7 +2,7 @@ metadata resources = {
   version: '0.1.0'
   author: 'Wesley Camargo'
   company: 'The Cloud Explorers'
-  description: 'Deploys a resource group and a storage account.'
+  description: 'Deploys a storage account.'
 }
 
 @allowed([

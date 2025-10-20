@@ -40,7 +40,7 @@ stages:
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp2.fileName }}
-                dependsOn: stamp1
+                dependsOn: sub_creation
                 lastInStage: true
 
           - infrastructure:

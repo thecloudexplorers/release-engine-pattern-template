@@ -40,11 +40,11 @@ stages:
 
           - infrastructure:
               iac:
-                name: stamp1
+                name: connectivity_stamp
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp1.fileName }}
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.connectivity_stamp.fileName }}
                 dependsOn: sub_creation
                 lastInStage: true 
 

@@ -17,8 +17,17 @@ stages:
         stages:
           - infrastructure:
               iac:
+                name: example_pattern
+                deploymentScope: Subscription
+                serviceConnection: $(serviceConnection)
+                iacMainFileName: workload.bicep                
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}                
+
+          - infrastructure:
+              iac:
                 name: storage_account
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                

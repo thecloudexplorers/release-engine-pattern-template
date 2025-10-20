@@ -32,21 +32,21 @@ stages:
         stages:
           - infrastructure:
               iac:
-                name: sub_creation
+                name: prerequisite_stage
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep                
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.sub_creation.fileName }}                
+                iacParameterFileName: prerequisite_stage.parameters.json
 
           - infrastructure:
               iac:
-                name: connectivity_stamp
+                name: dependent_stage1
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
                 # iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.connectivity_stamp.fileName }}
-                iacParameterFileName: connectivity_stamp.parameters.json                
-                dependsOn: sub_creation
+                iacParameterFileName: dependent_stage1.parameters.json
+                dependsOn: prerequisite_stage
                 lastInStage: true 
 
           # - infrastructure:

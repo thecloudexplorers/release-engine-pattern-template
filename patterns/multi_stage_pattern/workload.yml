@@ -8,7 +8,7 @@ variables:
 
 stages:
   - stage: debug_stage_workload
-    displayName: Debug Stage
+    displayName: Debug Stage Workload
     condition: eq( variables['System.Debug'], 'true' )
     jobs:
       - job: debug_job

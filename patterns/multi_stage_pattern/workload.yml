@@ -3,9 +3,11 @@ parameters:
     type: object
 
 variables:
+  # Workload dedicated SPN of the lowest environment.
+  # It is used for validate the pipeline run, and will be overridden by the correct SPN of each environment on runtime
+  # Can be set on configuration level parameters or as environment variable in the pipeline execution context
   - name: serviceConnection
-    value: ServiceConnection
-    # value: ssc-set-dev-sp001 # Must be replaced by the Workload dedicated SPN of the lowest environment . It is used for validate the pipeline run, and will be overriden by the correct SPN of each environment on runtime
+    value: ServiceConnection 
 
 stages:
 

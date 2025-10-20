@@ -33,22 +33,22 @@ stages:
                 dependsOn: sub_creation
                 lastInStage: true 
 
-          - infrastructure:
-              iac:
-                name: stamp2
-                deploymentScope: Subscription
-                serviceConnection: $(serviceConnection)
-                iacMainFileName: workload.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp2.fileName }}
-                dependsOn: sub_creation
-                lastInStage: true
+          # - infrastructure:
+          #     iac:
+          #       name: stamp2
+          #       deploymentScope: Subscription
+          #       serviceConnection: $(serviceConnection)
+          #       iacMainFileName: workload.bicep
+          #       iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp2.fileName }}
+          #       dependsOn: sub_creation
+          #       lastInStage: true
 
-          - infrastructure:
-              iac:
-                name: stamp3
-                deploymentScope: Subscription
-                serviceConnection: $(serviceConnection)
-                iacMainFileName: workload.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp3.fileName }}
-                dependsOn: sub_creation
-                lastInStage: true                
+          # - infrastructure:
+          #     iac:
+          #       name: stamp3
+          #       deploymentScope: Subscription
+          #       serviceConnection: $(serviceConnection)
+          #       iacMainFileName: workload.bicep
+          #       iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.stamp3.fileName }}
+          #       dependsOn: sub_creation
+          #       lastInStage: true                

@@ -59,7 +59,7 @@ stages:
                 lastInStage: true
 
   - stage: debug_stage_workload
-    displayName: Debug Stage Workload
+    displayName: Debug - Workload
     condition: eq( variables['System.Debug'], 'true' )
     jobs:
       - job: debug_job
@@ -71,4 +71,4 @@ stages:
             Write-Host '${{ convertToJson(parameters) }}'
             Write-Host "\nVariables:"
             Get-ChildItem env:
-          displayName: Display Settings and Environment Variables                
+          displayName: Debug - Display Settings and Environment Variables

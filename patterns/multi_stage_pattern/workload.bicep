@@ -33,6 +33,9 @@ module resourceGroup 'br/public:avm/res/resources/resource-group:0.4.2' = {
 module storageAccount 'br/public:avm/res/storage/storage-account:0.27.1' = {
   name: 'storageAccountDeployment'
   scope: az.resourceGroup(resourceGroupName)
+  dependsOn: [
+    resourceGroup
+  ]
   params: {
     name: storageAccountName
     location: resourceLocation

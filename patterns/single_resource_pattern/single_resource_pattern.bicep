@@ -15,8 +15,13 @@ param resourceLocation string
 @description('Name of the storage account')
 param storageAccountName string
 
+// Creates unique deployment names to avoid conflicts
+var deploymentNames = {
+  storageAccount: 'storageAccountName${uniqueString(storageAccountName, deployment().name)}'
+}
+
 module storageAccount 'br/public:avm/res/storage/storage-account:0.27.1' = {
-  name: 'storageAccountDeployment'
+  name: deploymentNames.storageAccount
   params: {
     name: storageAccountName
     location: resourceLocation

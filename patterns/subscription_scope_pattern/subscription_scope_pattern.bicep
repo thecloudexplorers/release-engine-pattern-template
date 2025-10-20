@@ -9,26 +9,21 @@ metadata resources = {
 // scope must be set to subscription to allow for the creation of a resource group
 targetScope = 'subscription'
 
-@allowed([
-  'westeurope'
-  'uksouth'
-])
-@description('Region in which the workload should be deployed')
-param resourceLocation string
-
 param tags object
 
 @description('Name of the target resource group ')
 param resourceGroupName string = 'example-avm-rg'
-// Deploy a resource group using Azure Verified Module (AVM)
-// Module reference: br/public:resource-group:1.0.0
 
-param location string = 'westeurope'
+// Creates unique deployment names to avoid conflicts
+var deploymentNames = {
+  resourceGroup: 'resourceGroupName${uniqueString(resourceGroupName, deployment().name)}'
+}
 
 module resourceGroup 'br/public:avm/res/resources/resource-group:0.4.2' = {
-  name: 'resourceGroupDeployment'
+  name: deploymentNames.resourceGroup
   params: {
     name: resourceGroupName
+    tags: tags
   }
 }
 

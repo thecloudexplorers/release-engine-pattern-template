@@ -44,7 +44,8 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.connectivity_stamp.fileName }}
+                # iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName.connectivity_stamp.fileName }}
+                iacParameterFileName: connectivity_stamp.parameters.json                
                 dependsOn: sub_creation
                 lastInStage: true 
 

@@ -22,11 +22,11 @@ Configuration Layer (Simple) → Abstraction Layer (THIS REPO) → Core Layer (P
 
 ### Available Deployment Patterns
 
-| Pattern | Description | Complexity | Deployment Scope |
-|---------|-------------|------------|------------------|
-| `single_resource_pattern` | Simple single-resource deployments | ⭐ Basic | Resource Group |
-| `multi_stage_pattern` | Complex multi-stage deployments with dependencies | ⭐⭐⭐ Advanced | Subscription |
-| `subscription_scope_pattern` | Subscription-level resource deployments | ⭐⭐ Intermediate | Subscription |
+| Pattern | Description | Complexity | Deployment Scope | Documentation |
+|---------|-------------|------------|------------------|---------------|
+| `single_resource_pattern` | Simple single-resource deployments | ⭐ Basic | Resource Group | [README](./patterns/single_resource_pattern/README.md) |
+| `subscription_scope_pattern` | Subscription-level resource deployments | ⭐⭐ Intermediate | Subscription | [README](./patterns/subscription_scope_pattern/README.md) |
+| `multi_stage_pattern` | Complex multi-stage deployments with dependencies | ⭐⭐⭐ Advanced | Subscription | [README](./patterns/multi_stage_pattern/README.md) |
 
 ### Pattern Structure
 Each pattern directory contains:
@@ -36,8 +36,13 @@ patterns/{pattern_name}/
 ├── {pattern_name}.bicep           # Main infrastructure template
 ├── {pattern_name}.prerequisite.bicep  # Prerequisites (if multi-stage)
 ├── {pattern_name}.dependent.bicep     # Dependent resources (if multi-stage)
-└── README.md                      # Pattern documentation
+└── README.md                      # Pattern documentation and usage guide
 ```
+
+### 📖 Pattern Documentation
+- **[Comprehensive Patterns Overview](./docs/PATTERNS_OVERVIEW.md)** - Detailed comparison, selection guide, and technical architecture
+- **Individual Pattern READMEs** - Complete usage instructions, parameters, and examples for each pattern
+- **[AI Assistant Instructions](./AGENTS.md)** - Detailed guidance for AI agents working with patterns
 
 ## 🚀 Quick Start (Using as Template)
 

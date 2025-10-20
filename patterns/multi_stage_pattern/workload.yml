@@ -19,6 +19,8 @@ stages:
         environments: ${{ parameters.platformWorkloadSettings.environments }}
         workloadArtifactsPath: /patterns/multi_stage_pattern
         stages:
+
+          # Prerequisite Stage - Runs First
           - infrastructure:
               iac:
                 name: prerequisite_stage
@@ -28,6 +30,7 @@ stages:
                 iacMainFileName: multi_stage_pattern.prerequisite.bicep
                 iacParameterFileName: /parameters/multi_stage_pattern.prerequisite.parameters.json
 
+          # Dependent Stage 1 - Depends on Prerequisite
           - infrastructure:
               iac:
                 name: dependent_stage1
@@ -39,6 +42,7 @@ stages:
                 dependsOn: prerequisite_stage
                 lastInStage: true 
 
+          # Dependent Stage 2 - Depends on Prerequisite (Parallel with Stage 1 & 3)
           - infrastructure:
               iac:
                 name: dependent_stage2
@@ -50,6 +54,7 @@ stages:
                 dependsOn: prerequisite_stage
                 lastInStage: true
 
+          # Dependent Stage 3 - Depends on Prerequisite (Parallel with Stage 1 & 2)
           - infrastructure:
               iac:
                 name: dependent_stage3

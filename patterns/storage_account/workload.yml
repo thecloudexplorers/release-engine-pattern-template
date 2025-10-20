@@ -32,3 +32,13 @@ stages:
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
                 dependsOn: example_pattern
                 lastInStage: true 
+
+          - infrastructure:
+              iac:
+                name: storage_account2
+                deploymentScope: Subscription
+                serviceConnection: $(serviceConnection)
+                iacMainFileName: workload.bicep
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                dependsOn: example_pattern
+                lastInStage: true                 

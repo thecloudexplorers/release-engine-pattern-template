@@ -17,7 +17,7 @@ stages:
         stages:
           - infrastructure:
               iac:
-                name: example_pattern
+                name: sub_creation
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep                
@@ -25,7 +25,7 @@ stages:
 
           - infrastructure:
               iac:
-                name: storage_account
+                name: stamp1
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
@@ -35,10 +35,21 @@ stages:
 
           - infrastructure:
               iac:
-                name: storage_account2
+                name: stamp2
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
                 dependsOn: example_pattern
-                lastInStage: true                 
+                lastInStage: true
+
+
+          - infrastructure:
+              iac:
+                name: stamp3
+                deploymentScope: Subscription
+                serviceConnection: $(serviceConnection)
+                iacMainFileName: workload.bicep
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                dependsOn: example_pattern
+                lastInStage: true                

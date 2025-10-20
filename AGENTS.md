@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides step-by-step instructions for creating new patterns based on the `example_pattern` structure.
+This document provides step-by-step instructions for creating new patterns based on the `subscription_scope_pattern` structure.
 
 ## Steps
 

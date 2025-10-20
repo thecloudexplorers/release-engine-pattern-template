@@ -10,10 +10,10 @@ stages:
   - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine
     parameters:
       workloadSettings:
-        name: storage_account
+        name: multi_stage_pattern
         configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
         environments: ${{ parameters.platformWorkloadSettings.environments }}
-        workloadArtifactsPath: /patterns/storage_account
+        workloadArtifactsPath: /patterns/multi_stage_pattern
         stages:
           - infrastructure:
               iac:

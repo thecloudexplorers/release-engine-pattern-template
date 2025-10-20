@@ -17,7 +17,7 @@ stages:
         stages:
           - infrastructure:
               iac:
-                name: example_pattern
+                name: subscription_scope_pattern
                 deploymentScope: ResourceGroup
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
@@ -30,5 +30,5 @@ stages:
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
-                dependsOn: example_pattern
+                dependsOn: subscription_scope_pattern
                 lastInStage: true

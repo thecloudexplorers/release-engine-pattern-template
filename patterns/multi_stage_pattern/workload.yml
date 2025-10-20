@@ -22,8 +22,8 @@ stages:
                 displayName: Prerequisite Stage
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: workload.bicep                
-                iacParameterFileName: prerequisite_stage.parameters.json
+                iacMainFileName: workload.bicep
+                iacParameterFileName: /parameters/prerequisite_stage.parameters.json
 
           - infrastructure:
               iac:
@@ -32,7 +32,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: dependent_stage1.parameters.json
+                iacParameterFileName: /parameters/dependent_stage1.parameters.json
                 dependsOn: prerequisite_stage
                 lastInStage: true 
 
@@ -43,7 +43,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: dependent_stage2.parameters.json
+                iacParameterFileName: /parameters/dependent_stage2.parameters.json
                 dependsOn: prerequisite_stage
                 lastInStage: true
 
@@ -54,7 +54,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep
-                iacParameterFileName: dependent_stage3.parameters.json
+                iacParameterFileName: /parameters/dependent_stage3.parameters.json
                 dependsOn: prerequisite_stage
                 lastInStage: true
 

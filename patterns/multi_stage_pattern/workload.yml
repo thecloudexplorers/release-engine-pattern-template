@@ -22,8 +22,8 @@ stages:
                 displayName: Prerequisite Stage
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: prerequisite.bicep
-                iacParameterFileName: /parameters/prerequisite.parameters.json
+                iacMainFileName: multi_stage_pattern.prerequisite.bicep
+                iacParameterFileName: /parameters/multi_stage_pattern.prerequisite.parameters.json
 
           - infrastructure:
               iac:
@@ -31,8 +31,8 @@ stages:
                 displayName: Dependent Stg 1
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: dependent.bicep
-                iacParameterFileName: /parameters/dependent1.parameters.json
+                iacMainFileName: multi_stage_pattern.dependent.bicep
+                iacParameterFileName: /parameters/multi_stage_pattern.dependent1.parameters.json
                 dependsOn: prerequisite_stage
                 lastInStage: true 
 
@@ -42,8 +42,8 @@ stages:
                 displayName: Dependent Stg 2
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: dependent.bicep
-                iacParameterFileName: /parameters/dependent2.parameters.json
+                iacMainFileName: multi_stage_pattern.dependent.bicep
+                iacParameterFileName: /parameters/multi_stage_pattern.dependent2.parameters.json
                 dependsOn: prerequisite_stage
                 lastInStage: true
 
@@ -53,8 +53,8 @@ stages:
                 displayName: Dependent Stg 3
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: dependent.bicep
-                iacParameterFileName: /parameters/dependent3.parameters.json
+                iacMainFileName: multi_stage_pattern.dependent.bicep
+                iacParameterFileName: /parameters/multi_stage_pattern.dependent3.parameters.json
                 dependsOn: prerequisite_stage
                 lastInStage: true
 

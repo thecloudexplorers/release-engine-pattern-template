@@ -374,7 +374,7 @@ extends:
 
 ### Related Resources
 - **[Release Engine Core](https://github.com/thecloudexplorers/release-engine)**: Core pipeline framework
-- **[Configuration Template](https://github.com/thecloudexplorers/release-engine-storage-account-example-configuration)**: Configuration repository template
+- **[Configuration Template](https://github.com/thecloudexplorers/release-engine-config-template)**: Configuration repository template
 - **[Azure Bicep Documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/)**
 - **[Azure Verified Modules](https://github.com/Azure/bicep-registry-modules)**
 

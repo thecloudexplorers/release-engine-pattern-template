@@ -446,7 +446,7 @@ Handle environment differences through:
 
 ### Internal Resources
 - **Core Release Engine**: https://github.com/thecloudexplorers/release-engine
-- **Configuration Template**: https://github.com/thecloudexplorers/release-engine-storage-account-example-configuration
+- **Configuration Template**: https://github.com/thecloudexplorers/release-engine-config-template
 - **Documentation**: Complete architectural documentation in core repository
 
 ### External Resources

@@ -315,7 +315,7 @@ module dataResourceGroup 'br/public:avm/res/resources/resource-group:0.4.2' = {
 
 ### Related Documentation
 - [Release Engine Architecture](https://github.com/thecloudexplorers/release-engine/blob/main/docs/Release-Engine-Solution-Architecture.md)
-- [Configuration Repository Template](https://github.com/thecloudexplorers/release-engine-storage-account-example-configuration)
+- [Configuration Repository Template](https://github.com/thecloudexplorers/release-engine-config-template)
 - [Azure Verified Modules](https://github.com/Azure/bicep-registry-modules)
 
 ## Pattern Development Guidelines

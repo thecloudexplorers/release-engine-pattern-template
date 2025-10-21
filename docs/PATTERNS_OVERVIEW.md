@@ -84,10 +84,21 @@ The most sophisticated pattern showcasing complex, multi-stage deployments with 
 
 Teams typically progress through patterns as their needs and expertise grow:
 
-```text
-Single Resource → Subscription Scope → Multi Stage → Custom Patterns
-     ↓                    ↓                ↓              ↓
- Learn basics    Foundation setup   Orchestration   Organization-specific
+```mermaid
+graph LR
+    A["Single Resource<br/>⭐ Basic"] --> B["Subscription Scope<br/>⭐⭐ Intermediate"]
+    B --> C["Multi Stage<br/>⭐⭐⭐ Advanced"]
+    C --> D["Custom Patterns<br/>Organization-specific"]
+    
+    A1["Learn basics"] -.-> A
+    B1["Foundation setup"] -.-> B
+    C1["Orchestration"] -.-> C
+    D1["Organization-specific"] -.-> D
+    
+    style A fill:#c8e6c9
+    style B fill:#fff9c4
+    style C fill:#ffcdd2
+    style D fill:#e1bee7
 ```
 
 ### Learning Progression
@@ -99,40 +110,69 @@ Single Resource → Subscription Scope → Multi Stage → Custom Patterns
 ## Technical Architecture Comparison
 
 ### Single Resource Pattern Architecture
-```text
-┌─────────────────────────────────────┐
-│           Resource Group            │
-│  ┌─────────────────────────────┐   │
-│  │     Azure Storage Account   │   │
-│  └─────────────────────────────┘   │
-└─────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph RG ["Resource Group"]
+        SA["Azure Storage Account<br/>(Standard_LRS default)"]
+    end
+    
+    style RG fill:#e1f5fe
+    style SA fill:#b3e5fc
 ```
 
 ### Subscription Scope Pattern Architecture
-```text
-┌─────────────────────────────────────┐
-│         Azure Subscription          │
-│  ┌─────────────────────────────┐   │
-│  │       Resource Group        │   │
-│  └─────────────────────────────┘   │
-└─────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph SUB ["Azure Subscription"]
+        RG["Resource Group<br/>(example-avm-rg default)<br/><br/>(Ready for other resources)"]
+    end
+    
+    style SUB fill:#fff3e0
+    style RG fill:#ffcc80
 ```
 
 ### Multi Stage Pattern Architecture
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                    Azure Subscription                           │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │                 Prerequisite Stage                      │   │
-│  │              (Resource Group)                           │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                │                                │
-│                                ▼                                │
-│  ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐   │
-│  │ Dependent Stg 1 │ │ Dependent Stg 2 │ │ Dependent Stg 3 │   │
-│  │  (RG + Storage) │ │  (RG + Storage) │ │  (RG + Storage) │   │
-│  └─────────────────┘ └─────────────────┘ └─────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph SUB ["Azure Subscription"]
+        subgraph PREREQ ["Prerequisite Stage"]
+            PRG["Resource Group"]
+        end
+        
+        subgraph DEP ["Dependent Stages (Parallel)"]
+            subgraph S1 ["Dependent Stg 1"]
+                RG1["Resource Group"]
+                SA1["Storage Account"]
+            end
+            
+            subgraph S2 ["Dependent Stg 2"]
+                RG2["Resource Group"]
+                SA2["Storage Account"]
+            end
+            
+            subgraph S3 ["Dependent Stg 3"]
+                RG3["Resource Group"]
+                SA3["Storage Account"]
+            end
+        end
+    end
+    
+    PREREQ --> S1
+    PREREQ --> S2
+    PREREQ --> S3
+    
+    style SUB fill:#f3e5f5
+    style PREREQ fill:#e1bee7
+    style S1 fill:#c8e6c9
+    style S2 fill:#c8e6c9
+    style S3 fill:#c8e6c9
+    style PRG fill:#ce93d8
+    style RG1 fill:#a5d6a7
+    style RG2 fill:#a5d6a7
+    style RG3 fill:#a5d6a7
+    style SA1 fill:#81c784
+    style SA2 fill:#81c784
+    style SA3 fill:#81c784
 ```
 
 ## Configuration Complexity Comparison

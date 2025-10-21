@@ -8,22 +8,47 @@ The Multi Stage Pattern demonstrates the most sophisticated deployment capabilit
 
 This pattern showcases a complex deployment topology with one prerequisite stage and three dependent stages that all depend on the prerequisite stage.
 
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                    Azure Subscription                           │
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │                 Prerequisite Stage                      │   │
-│  │              (Resource Group)                           │   │
-│  └─────────────────────────────────────────────────────────┘   │
-│                                │                                │
-│                                ▼                                │
-│  ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐   │
-│  │ Dependent Stg 1 │ │ Dependent Stg 2 │ │ Dependent Stg 3 │   │
-│  │  (Storage +     │ │  (Storage +     │ │  (Storage +     │   │
-│  │   Resource Grp) │ │   Resource Grp) │ │   Resource Grp) │   │
-│  └─────────────────┘ └─────────────────┘ └─────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph SUB ["Azure Subscription"]
+        subgraph PREREQ ["Prerequisite Stage"]
+            PRG["Resource Group"]
+        end
+        
+        subgraph DEP ["Dependent Stages (Parallel)"]
+            subgraph S1 ["Dependent Stg 1"]
+                RG1["Resource Group"]
+                SA1["Storage Account"]
+            end
+            
+            subgraph S2 ["Dependent Stg 2"]
+                RG2["Resource Group"]
+                SA2["Storage Account"]
+            end
+            
+            subgraph S3 ["Dependent Stg 3"]
+                RG3["Resource Group"]
+                SA3["Storage Account"]
+            end
+        end
+    end
+    
+    PREREQ --> S1
+    PREREQ --> S2
+    PREREQ --> S3
+    
+    style SUB fill:#f3e5f5
+    style PREREQ fill:#e1bee7
+    style S1 fill:#c8e6c9
+    style S2 fill:#c8e6c9
+    style S3 fill:#c8e6c9
+    style PRG fill:#ce93d8
+    style RG1 fill:#a5d6a7
+    style RG2 fill:#a5d6a7
+    style RG3 fill:#a5d6a7
+    style SA1 fill:#81c784
+    style SA2 fill:#81c784
+    style SA3 fill:#81c784
 ```
 
 ## Pipeline Visualization

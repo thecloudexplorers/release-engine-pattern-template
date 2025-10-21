@@ -8,16 +8,14 @@ The Subscription Scope Pattern demonstrates how to deploy resources at the Azure
 
 This pattern deploys a Resource Group at the subscription level, which can then host other Azure resources.
 
-```text
-┌─────────────────────────────────────┐
-│         Azure Subscription          │
-│  ┌─────────────────────────────┐   │
-│  │       Resource Group        │   │
-│  │   (example-avm-rg default)  │   │
-│  │                             │   │
-│  │  (Ready for other resources) │   │
-│  └─────────────────────────────┘   │
-└─────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph SUB ["Azure Subscription"]
+        RG["Resource Group<br/>(example-avm-rg default)<br/><br/>(Ready for other resources)"]
+    end
+    
+    style SUB fill:#fff3e0
+    style RG fill:#ffcc80
 ```
 
 ## Prerequisites

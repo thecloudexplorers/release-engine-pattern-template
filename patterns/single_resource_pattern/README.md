@@ -6,14 +6,14 @@ The Single Resource Pattern is the simplest deployment pattern in the Release En
 ## Architecture
 This pattern deploys a single Azure Storage Account within an existing Resource Group.
 
-```text
-┌─────────────────────────────────────┐
-│           Resource Group            │
-│  ┌─────────────────────────────┐   │
-│  │     Azure Storage Account   │   │
-│  │    (Standard_LRS default)   │   │
-│  └─────────────────────────────┘   │
-└─────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph RG ["Resource Group"]
+        SA["Azure Storage Account<br/>(Standard_LRS default)"]
+    end
+    
+    style RG fill:#e1f5fe
+    style SA fill:#b3e5fc
 ```
 
 ## Prerequisites

@@ -127,7 +127,7 @@ Each dependent stage creates:
 
 ```yaml
 stages:
-  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine
+  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
     parameters:
       workloadSettings:
         name: multi_stage_pattern

@@ -96,7 +96,7 @@ variables:
     value: <default-service-connection> # Override per environment
 
 stages:
-  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine
+  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
     parameters:
       workloadSettings:
         name: <pattern_name>
@@ -445,7 +445,7 @@ Handle environment differences through:
 ## 📞 Support and Resources
 
 ### Internal Resources
-- **Core Release Engine**: https://github.com/thecloudexplorers/release-engine
+- **Core Release Engine**: https://github.com/thecloudexplorers/release-engine-core
 - **Configuration Template**: https://github.com/thecloudexplorers/release-engine-config-template
 - **Documentation**: Complete architectural documentation in core repository
 

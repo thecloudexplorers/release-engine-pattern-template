@@ -149,7 +149,7 @@ variables:
     value: <your-org-service-connection>
 
 stages:
-  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine
+  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
     parameters:
       workloadSettings:
         name: <pattern_name>
@@ -324,7 +324,7 @@ Any pattern dependencies.
 ### Repository Dependencies
 This repository integrates with:
 
-- **[Release Engine Core](https://github.com/thecloudexplorers/release-engine)**: Provides pipeline orchestration framework
+- **[Release Engine Core](https://github.com/thecloudexplorers/release-engine-core)**: Provides pipeline orchestration framework
 - **Configuration Repositories**: Uses patterns defined here for actual deployments
 
 ### Usage in Configuration Repositories
@@ -373,7 +373,7 @@ extends:
 - **Contributions**: Follow contribution guidelines for improvements
 
 ### Related Resources
-- **[Release Engine Core](https://github.com/thecloudexplorers/release-engine)**: Core pipeline framework
+- **[Release Engine Core](https://github.com/thecloudexplorers/release-engine-core)**: Core pipeline framework
 - **[Configuration Template](https://github.com/thecloudexplorers/release-engine-config-template)**: Configuration repository template
 - **[Azure Bicep Documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/)**
 - **[Azure Verified Modules](https://github.com/Azure/bicep-registry-modules)**

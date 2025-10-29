@@ -27,6 +27,7 @@ stages:
                 iacMainFileName: resource_group_scope_pattern.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
                 resourceGroupName: $(applicationAbbreviation)-$(environmentAbbreviation)-rg
+                subscriptionId: $(subscriptionId)
 
  # This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes
  # The debug stage can be omitted by commenting it out

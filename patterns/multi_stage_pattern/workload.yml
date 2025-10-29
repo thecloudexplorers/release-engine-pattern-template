@@ -29,6 +29,7 @@ stages:
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.prerequisite.bicep
                 iacParameterFileName: /parameters/multi_stage_pattern.prerequisite.parameters.json
+                preRequisiteStage: true
 
           # Dependent Stage 1 - Depends on Prerequisite
           - infrastructure:

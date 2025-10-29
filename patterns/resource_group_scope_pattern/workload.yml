@@ -20,11 +20,11 @@ stages:
         stages:
           - infrastructure:
               iac:
-                name: resource_group_scope
+                name: resource_group_scope_pattern
                 displayName: Single Stage Example
                 deploymentScope: ResourceGroup
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: resource_group_scope.bicep
+                iacMainFileName: resource_group_scope_pattern.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
 
  # This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes

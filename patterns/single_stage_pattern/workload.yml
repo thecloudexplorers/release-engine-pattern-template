@@ -1,0 +1,20 @@
+parameters:
+  - name: platformWorkloadSettings
+    type: object
+
+stages:
+  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine
+    parameters:
+      workloadSettings:
+        name: single_stage_pattern
+        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
+        environments: ${{ parameters.platformWorkloadSettings.environments }}
+        workloadArtifactsPath: /patterns/single_stage_pattern
+        stages:
+          - infrastructure:
+              iac:
+                name: single_stage_pattern
+                deploymentScope: ResourceGroup
+                serviceConnection: $(serviceConnection)
+                iacMainFileName: workload.bicep
+                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}

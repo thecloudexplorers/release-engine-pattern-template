@@ -21,7 +21,8 @@ stages:
           - infrastructure:
               iac:
                 name: single_stage_pattern
+                displayName: Prerequisite Stage
                 deploymentScope: ResourceGroup
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: workload.bicep
+                iacMainFileName: single_stage_pattern.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}

@@ -1,7 +1,7 @@
-# Single Resource Pattern
+# Resource Group Scope Pattern
 
 ## Overview
-The Single Resource Pattern is the simplest deployment pattern in the Release Engine framework. It demonstrates how to deploy a single Azure resource (storage account) using Azure Verified Modules (AVM) with minimal configuration.
+The Resource Group Scope Pattern is the simplest deployment pattern in the Release Engine framework. It demonstrates how to deploy a single Azure resource (storage account) within a resource group using Azure Verified Modules (AVM) with minimal configuration.
 
 ## Architecture
 This pattern deploys a single Azure Storage Account within an existing Resource Group.
@@ -59,7 +59,7 @@ stages:
         name: single_resource_deployment
         deploymentScope: ResourceGroup
         serviceConnection: $(serviceConnection)
-        iacMainFileName: single_resource_pattern.bicep
+        iacMainFileName: resource_group_scope_pattern.bicep
         iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
 ```
 
@@ -75,7 +75,7 @@ variables:
 
 ## Configuration Repository Integration
 
-### Parameter File Example (`single_resource_pattern.parameters.json`)
+### Parameter File Example (`resource_group_scope_pattern.parameters.json`)
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
@@ -95,7 +95,7 @@ variables:
 ```yaml
 # In _config/metadata.yml
 variables:
-  workload: "single_resource_pattern"  # Must match pattern name
+  workload: "resource_group_scope_pattern"  # Must match pattern name
   applicationAbbreviation: "myapp"     # Used in storage account naming
 ```
 
@@ -157,12 +157,12 @@ The storage account created by this pattern supports:
 ### Validation Commands
 ```bash
 # Validate Bicep template
-az bicep build --file single_resource_pattern.bicep
+az bicep build --file resource_group_scope_pattern.bicep
 
 # Test deployment (what-if)
 az deployment group what-if \
   --resource-group myResourceGroup \
-  --template-file single_resource_pattern.bicep \
+  --template-file resource_group_scope_pattern.bicep \
   --parameters resourceLocation=westeurope storageAccountName=mystorageaccount
 ```
 

@@ -2,32 +2,33 @@ parameters:
   - name: platformWorkloadSettings
     type: object
 
+variables:
+  # Workload dedicated SPN of the lowest environment.
+  # It is used for validate the pipeline run, and will be overridden by the correct SPN of each environment on runtime
+  # Can be set on configuration level parameters or as environment variable in the pipeline execution context
+  - name: serviceConnection
+    value: ServiceConnection 
+
 stages:
   - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
     parameters:
       workloadSettings:
-        name: subscription_scope_pattern
+        name: resource_group_scope
         configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
         environments: ${{ parameters.platformWorkloadSettings.environments }}
-        workloadArtifactsPath: /patterns/subscription_scope_pattern
+        workloadArtifactsPath: /patterns/resource_group_scope
         stages:
-          # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
-          # - ${{ each collectionItem in parameters.platformWorkloadSettings.collection }}:
           - infrastructure:
               iac:
-                name: subscription_scope_pattern
-                displayName: Subscription Scope Example
-                deploymentScope: Subscription
+                name: resource_group_scope
+                displayName: Single Stage Example
+                deploymentScope: ResourceGroup
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: workload.bicep                
+                iacMainFileName: resource_group_scope.bicep
                 iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
-                iacParameterFilesDirectory: /iac/
-                
-                # Use to override bicep parameters
-                # customBicepParameters: '@{<param name>="$(<param value>)"}'
 
-# This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes
-# The debug stage can be omitted by commenting it out
+ # This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes
+ # The debug stage can be omitted by commenting it out
   - stage: debug_stage_workload
     displayName: Debug - Workload
     condition: eq( variables['System.Debug'], 'true' )
@@ -42,4 +43,4 @@ stages:
             Write-Host '${{ convertToJson(parameters) }}'
             Write-Host "\nVariables:"
             Get-ChildItem env:
-          displayName: Debug - Display Settings and Environment Variables
+          displayName: Debug - Display Settings and Environment Variables                

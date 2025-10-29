@@ -24,7 +24,7 @@ stages:
           - infrastructure:
               iac:
                 name: prerequisite_stage
-                displayName: Prerequisite Stage
+                displayName: Prerequisite Stage Example
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.prerequisite.bicep
@@ -34,7 +34,7 @@ stages:
           - infrastructure:
               iac:
                 name: dependent_stage1
-                displayName: Dependent Stg 1
+                displayName: Dependent Stg 1 Example
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.dependent.bicep
@@ -46,7 +46,7 @@ stages:
           - infrastructure:
               iac:
                 name: dependent_stage2
-                displayName: Dependent Stg 2
+                displayName: Dependent Stg 2 Example
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.dependent.bicep
@@ -58,7 +58,7 @@ stages:
           - infrastructure:
               iac:
                 name: dependent_stage3
-                displayName: Dependent Stg 3
+                displayName: Dependent Stg 3 Example
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.dependent.bicep
@@ -66,6 +66,8 @@ stages:
                 dependsOn: prerequisite_stage
                 lastInStage: true
 
+ # This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes
+ # The debug stage can be omitted by commenting it out
   - stage: debug_stage_workload
     displayName: Debug - Workload
     condition: eq( variables['System.Debug'], 'true' )

@@ -24,7 +24,7 @@ Configuration Layer (Simple) → Abstraction Layer (THIS REPO) → Core Layer (P
 
 | Pattern | Description | Complexity | Deployment Scope | Documentation |
 |---------|-------------|------------|------------------|---------------|
-| `single_resource_pattern` | Simple single-resource deployments | ⭐ Basic | Resource Group | [README](./patterns/single_resource_pattern/README.md) |
+| `resource_group_scope_pattern` | Simple single-resource deployments within a resource group | ⭐ Basic | Resource Group | [README](./patterns/resource_group_scope_pattern/README.md) |
 | `subscription_scope_pattern` | Subscription-level resource deployments | ⭐⭐ Intermediate | Subscription | [README](./patterns/subscription_scope_pattern/README.md) |
 | `multi_stage_pattern` | Complex multi-stage deployments with dependencies | ⭐⭐⭐ Advanced | Subscription | [README](./patterns/multi_stage_pattern/README.md) |
 

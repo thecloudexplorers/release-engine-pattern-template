@@ -4,8 +4,8 @@ This document provides a comprehensive overview of all available workload patter
 
 ## Pattern Catalog
 
-### 1. Single Resource Pattern ⭐ Basic
-**File**: `/patterns/single_resource_pattern/`
+### 1. Resource Group Scope Pattern ⭐ Basic
+**File**: `/patterns/resource_group_scope_pattern/`
 **Complexity**: Basic
 **Deployment Scope**: Resource Group
 
@@ -45,8 +45,8 @@ The most sophisticated pattern showcasing complex, multi-stage deployments with 
 
 ## Pattern Comparison Matrix
 
-| Feature | Single Resource | Subscription Scope | Multi Stage |
-|---------|----------------|-------------------|-------------|
+| Feature | Resource Group Scope | Subscription Scope | Multi Stage |
+|---------|---------------------|-------------------|-------------|
 | **Complexity** | ⭐ Basic | ⭐⭐ Intermediate | ⭐⭐⭐ Advanced |
 | **Resources** | 1 | 1 | 7 |
 | **Bicep Files** | 1 | 1 | 2 |
@@ -59,7 +59,7 @@ The most sophisticated pattern showcasing complex, multi-stage deployments with 
 
 ## Pattern Selection Guide
 
-### Choose Single Resource Pattern When:
+### Choose Resource Group Scope Pattern When:
 - ✅ Learning the Release Engine framework
 - ✅ Deploying standalone resources
 - ✅ Simple storage or compute needs
@@ -86,7 +86,7 @@ Teams typically progress through patterns as their needs and expertise grow:
 
 ```mermaid
 graph LR
-    A["Single Resource<br/>⭐ Basic"] --> B["Subscription Scope<br/>⭐⭐ Intermediate"]
+    A["Resource Group Scope<br/>⭐ Basic"] --> B["Subscription Scope<br/>⭐⭐ Intermediate"]
     B --> C["Multi Stage<br/>⭐⭐⭐ Advanced"]
     C --> D["Custom Patterns<br/>Organization-specific"]
     
@@ -102,14 +102,14 @@ graph LR
 ```
 
 ### Learning Progression
-1. **Start with Single Resource**: Understand basic concepts, AVM usage, parameter files
+1. **Start with Resource Group Scope**: Understand basic concepts, AVM usage, parameter files
 2. **Graduate to Subscription Scope**: Learn subscription-level permissions, resource group creation
 3. **Master Multi Stage**: Complex dependencies, parallel execution, advanced orchestration
 4. **Create Custom Patterns**: Organization-specific patterns based on learned concepts
 
 ## Technical Architecture Comparison
 
-### Single Resource Pattern Architecture
+### Resource Group Scope Pattern Architecture
 ```mermaid
 graph TB
     subgraph RG ["Resource Group"]
@@ -178,23 +178,23 @@ graph TB
 ## Configuration Complexity Comparison
 
 ### Parameter Files Required
-- **Single Resource**: 1 parameter file (`single_resource_pattern.parameters.json`)
+- **Resource Group Scope**: 1 parameter file (`resource_group_scope_pattern.parameters.json`)
 - **Subscription Scope**: 1 parameter file (`subscription_scope_pattern.parameters.json`)  
 - **Multi Stage**: 4 parameter files (prerequisite + 3 dependent stages)
 
 ### Environment Variables Complexity
-- **Single Resource**: Basic (location, naming)
+- **Resource Group Scope**: Basic (location, naming)
 - **Subscription Scope**: Intermediate (tagging, governance)
 - **Multi Stage**: Advanced (unique naming per stage, complex tagging)
 
 ### Pipeline Configuration Lines
-- **Single Resource**: ~15 lines of YAML
-- **Subscription Scope**: ~15 lines of YAML
-- **Multi Stage**: ~60+ lines of YAML
+- **Resource Group Scope**: ~40+ lines of YAML (with debug stage)
+- **Subscription Scope**: ~40+ lines of YAML (with debug stage)
+- **Multi Stage**: ~80+ lines of YAML (with debug stage)
 
 ## Common Use Case Mapping
 
-### Single Resource Pattern Use Cases
+### Resource Group Scope Pattern Use Cases
 - **Development Storage**: Personal or team development storage needs
 - **Backup Solutions**: Simple backup storage accounts
 - **Static Website Storage**: Storage for static website hosting

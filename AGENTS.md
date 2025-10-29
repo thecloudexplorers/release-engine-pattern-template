@@ -26,9 +26,9 @@ patterns/
 │   ├── workload.yml             # Pipeline configuration
 │   ├── multi_stage_pattern.prerequisite.bicep
 │   └── multi_stage_pattern.dependent.bicep
-├── single_resource_pattern/      # Simple single-resource deployments
+├── resource_group_scope_pattern/ # Simple single-resource deployments within resource group
 │   ├── workload.yml             # Pipeline configuration
-│   └── single_resource_pattern.bicep
+│   └── resource_group_scope_pattern.bicep
 └── subscription_scope_pattern/   # Subscription-level deployments
     ├── workload.yml             # Pipeline configuration
     └── subscription_scope_pattern.bicep

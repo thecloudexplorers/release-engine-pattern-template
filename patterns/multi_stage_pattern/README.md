@@ -133,7 +133,7 @@ stages:
         name: multi_stage_pattern
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}
-        workloadArtifactsPath: /patterns/multi_stage_pattern
+        patternArtifactsPath: /patterns/multi_stage_pattern
         stages:
           # Prerequisite Stage - Runs First
           - infrastructure:

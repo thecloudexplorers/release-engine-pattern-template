@@ -102,7 +102,7 @@ stages:
         name: <pattern_name>
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}
-        workloadArtifactsPath: /patterns/<pattern_name>
+        patternArtifactsPath: /patterns/<pattern_name>
         stages:
           - infrastructure:
               iac:

@@ -9,7 +9,7 @@ stages:
         name: subscription_scope_pattern
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}
-        workloadArtifactsPath: /patterns/subscription_scope_pattern
+        patternArtifactsPath: /patterns/subscription_scope_pattern
         stages:
           # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
           # - ${{ each collectionItem in parameters.deploymentSettings.collection }}:

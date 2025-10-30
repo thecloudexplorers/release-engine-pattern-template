@@ -4,8 +4,6 @@ metadata resources = {
   description: '<Description>'
 }
 
-// WORKLOAD CONFIGURATIONS
-
 // scope must be set to subscription to allow for the creation of a resource group
 targetScope = 'subscription'
 

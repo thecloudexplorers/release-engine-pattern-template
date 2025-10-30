@@ -1,18 +1,18 @@
 parameters:
-  - name: platformWorkloadSettings
+  - name: deploymentSettings
     type: object
 
 stages:
-  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
+  - template: /pipelines/01-orchestrators/pattern.orchestrator.yml@release-engine-core
     parameters:
-      workloadSettings:
+      patternSettings:
         name: subscription_scope_pattern
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
-        workloadArtifactsPath: /patterns/subscription_scope_pattern
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
+        patternArtifactsPath: /patterns/subscription_scope_pattern
         stages:
           # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
-          # - ${{ each collectionItem in parameters.platformWorkloadSettings.collection }}:
+          # - ${{ each collectionItem in parameters.deploymentSettings.collection }}:
           - infrastructure:
               iac:
                 name: subscription_scope_pattern
@@ -20,7 +20,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep                
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFileName: ${{ parameters.deploymentSettings.iacParameterFileName }}
                 iacParameterFilesDirectory: /iac/
                 
                 # Use to override bicep parameters
@@ -28,8 +28,8 @@ stages:
 
 # This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes
 # The debug stage can be omitted by commenting it out
-  - stage: debug_stage_workload
-    displayName: Debug - Workload
+  - stage: debug_stage_pattern
+    displayName: Debug - Pattern
     condition: eq( variables['System.Debug'], 'true' )
     dependsOn: []
     jobs:
@@ -37,7 +37,7 @@ stages:
         displayName: Debug Job
         steps:
         - powershell: |
-            # Shows all configurations for debugging purposes of workloadSettings
+            # Shows all configurations for debugging purposes of patternSettings
             Write-Host "\nParameters:"
             Write-Host '${{ convertToJson(parameters) }}'
             Write-Host "\nVariables:"

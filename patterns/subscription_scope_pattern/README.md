@@ -67,7 +67,7 @@ stages:
         deploymentScope: Subscription
         serviceConnection: $(serviceConnection)
         iacMainFileName: subscription_scope_pattern.bicep
-        iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+        iacParameterFileName: ${{ parameters.deploymentSettings.iacParameterFileName }}
 ```
 
 ### Environment Variables Required

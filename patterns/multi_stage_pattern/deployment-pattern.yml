@@ -1,9 +1,9 @@
 parameters:
-  - name: platformWorkloadSettings
+  - name: deploymentSettings
     type: object
 
 variables:
-  # Workload dedicated SPN of the lowest environment.
+  # SPN of the lowest environment.
   # It is used for validate the pipeline run, and will be overridden by the correct SPN of each environment on runtime
   # Can be set on configuration level parameters or as environment variable in the pipeline execution context
   - name: serviceConnection
@@ -11,13 +11,13 @@ variables:
 
 stages:
 
-  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
+  - template: /pipelines/01-orchestrators/pattern.orchestrator.yml@release-engine-core
     parameters:
-      workloadSettings:
+      patternSettings:
         name: multi_stage_pattern
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
-        workloadArtifactsPath: /patterns/multi_stage_pattern
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
+        patternArtifactsPath: /patterns/multi_stage_pattern
         stages:
 
           # Prerequisite Stage - Runs First
@@ -69,8 +69,8 @@ stages:
 
  # This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes
  # The debug stage can be omitted by commenting it out
-  - stage: debug_stage_workload
-    displayName: Debug - Workload
+  - stage: debug_stage_pattern
+    displayName: Debug - Pattern
     condition: eq( variables['System.Debug'], 'true' )
     dependsOn: []
     jobs:
@@ -78,7 +78,7 @@ stages:
         displayName: Debug Job
         steps:
         - powershell: |
-            # Shows all configurations for debugging purposes of workloadSettings
+            # Shows all configurations for debugging purposes of patternSettings
             Write-Host "\nParameters:"
             Write-Host '${{ convertToJson(parameters) }}'
             Write-Host "\nVariables:"

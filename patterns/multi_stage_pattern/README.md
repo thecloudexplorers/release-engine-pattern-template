@@ -127,13 +127,13 @@ Each dependent stage creates:
 
 ```yaml
 stages:
-  - template: /common/pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
+  - template: /pipelines/01-orchestrators/pattern.orchestrator.yml@release-engine-core
     parameters:
-      workloadSettings:
+      patternSettings:
         name: multi_stage_pattern
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
-        workloadArtifactsPath: /patterns/multi_stage_pattern
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
+        patternArtifactsPath: /patterns/multi_stage_pattern
         stages:
           # Prerequisite Stage - Runs First
           - infrastructure:

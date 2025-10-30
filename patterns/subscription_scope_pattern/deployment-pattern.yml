@@ -1,0 +1,45 @@
+parameters:
+  - name: deploymentSettings
+    type: object
+
+stages:
+  - template: /pipelines/01-orchestrators/pattern.orchestrator.yml@release-engine-core
+    parameters:
+      patternSettings:
+        name: subscription_scope_pattern
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
+        patternArtifactsPath: /patterns/subscription_scope_pattern
+        stages:
+          # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
+          # - ${{ each collectionItem in parameters.deploymentSettings.collection }}:
+          - infrastructure:
+              iac:
+                name: subscription_scope_pattern
+                displayName: Subscription Scope Example
+                deploymentScope: Subscription
+                serviceConnection: $(serviceConnection)
+                iacMainFileName: workload.bicep                
+                iacParameterFileName: ${{ parameters.deploymentSettings.iacParameterFileName }}
+                iacParameterFilesDirectory: /iac/
+                
+                # Use to override bicep parameters
+                # customBicepParameters: '@{<param name>="$(<param value>)"}'
+
+# This debug stage is optional and can be used to output parameters and variables for troubleshooting purposes
+# The debug stage can be omitted by commenting it out
+  - stage: debug_stage_pattern
+    displayName: Debug - Pattern
+    condition: eq( variables['System.Debug'], 'true' )
+    dependsOn: []
+    jobs:
+      - job: debug_job
+        displayName: Debug Job
+        steps:
+        - powershell: |
+            # Shows all configurations for debugging purposes of patternSettings
+            Write-Host "\nParameters:"
+            Write-Host '${{ convertToJson(parameters) }}'
+            Write-Host "\nVariables:"
+            Get-ChildItem env:
+          displayName: Debug - Display Settings and Environment Variables

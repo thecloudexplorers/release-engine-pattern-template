@@ -131,8 +131,8 @@ stages:
     parameters:
       workloadSettings:
         name: multi_stage_pattern
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
         workloadArtifactsPath: /patterns/multi_stage_pattern
         stages:
           # Prerequisite Stage - Runs First

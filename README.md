@@ -141,7 +141,7 @@ module storageAccount 'br/public:avm/res/storage/storage-account:0.27.1' = {
 #### Basic Pattern Template
 ```yaml
 parameters:
-  - name: platformWorkloadSettings
+  - name: deploymentSettings
     type: object
 
 variables:
@@ -153,8 +153,8 @@ stages:
     parameters:
       workloadSettings:
         name: <pattern_name>
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
         workloadArtifactsPath: /patterns/<pattern_name>
         stages:
           - infrastructure:
@@ -164,7 +164,7 @@ stages:
                 deploymentScope: <Subscription|ResourceGroup>
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: <bicep_file>.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFileName: ${{ parameters.deploymentSettings.iacParameterFileName }}
 ```
 
 #### Multi-Stage Pattern Example

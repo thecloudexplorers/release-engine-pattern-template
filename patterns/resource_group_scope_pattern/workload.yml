@@ -1,5 +1,5 @@
 parameters:
-  - name: platformWorkloadSettings
+  - name: deploymentSettings
     type: object
 
 variables:
@@ -14,8 +14,8 @@ stages:
     parameters:
       workloadSettings:
         name: resource_group_scope_pattern
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
         workloadArtifactsPath: /patterns/resource_group_scope_pattern
         stages:
           - infrastructure:

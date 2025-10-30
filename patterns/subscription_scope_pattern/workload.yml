@@ -1,5 +1,5 @@
 parameters:
-  - name: platformWorkloadSettings
+  - name: deploymentSettings
     type: object
 
 stages:
@@ -7,12 +7,12 @@ stages:
     parameters:
       workloadSettings:
         name: subscription_scope_pattern
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
         workloadArtifactsPath: /patterns/subscription_scope_pattern
         stages:
           # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
-          # - ${{ each collectionItem in parameters.platformWorkloadSettings.collection }}:
+          # - ${{ each collectionItem in parameters.deploymentSettings.collection }}:
           - infrastructure:
               iac:
                 name: subscription_scope_pattern
@@ -20,7 +20,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep                
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFileName: ${{ parameters.deploymentSettings.iacParameterFileName }}
                 iacParameterFilesDirectory: /iac/
                 
                 # Use to override bicep parameters

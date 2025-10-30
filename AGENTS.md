@@ -88,7 +88,7 @@ Each pattern directory must contain:
 #### Template Structure
 ```yaml
 parameters:
-  - name: platformWorkloadSettings
+  - name: deploymentSettings
     type: object
 
 variables:
@@ -100,8 +100,8 @@ stages:
     parameters:
       workloadSettings:
         name: <pattern_name>
-        configurationFilePath: ${{ parameters.platformWorkloadSettings.configurationFilePath }}
-        environments: ${{ parameters.platformWorkloadSettings.environments }}
+        configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
+        environments: ${{ parameters.deploymentSettings.environments }}
         workloadArtifactsPath: /patterns/<pattern_name>
         stages:
           - infrastructure:
@@ -111,7 +111,7 @@ stages:
                 deploymentScope: <Subscription|ResourceGroup|Tenant>
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: <bicep_file_name>.bicep
-                iacParameterFileName: ${{ parameters.platformWorkloadSettings.iacParameterFileName }}
+                iacParameterFileName: ${{ parameters.deploymentSettings.iacParameterFileName }}
                 dependsOn: <optional_dependency_stage>
                 lastInStage: <true|false>
 ```

@@ -98,7 +98,7 @@ variables:
 stages:
   - template: /pipelines/01-orchestrators/pattern.orchestrator.yml@release-engine-core
     parameters:
-      workloadSettings:
+      patternSettings:
         name: <pattern_name>
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}

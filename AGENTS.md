@@ -96,7 +96,7 @@ variables:
     value: <default-service-connection> # Override per environment
 
 stages:
-  - template: /pipelines/01-orchestrators/alz.devops.workload.orchestrator.yml@release-engine-core
+  - template: /pipelines/01-orchestrators/pattern.orchestrator.yml@release-engine-core
     parameters:
       workloadSettings:
         name: <pattern_name>

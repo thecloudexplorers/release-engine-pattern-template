@@ -17,6 +17,10 @@ stages:
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}
         patternArtifactsPath: /patterns/subscription_scope_pattern
+        # Indicates if this is an builtin pattern in the release-engine-core repo
+        # Options: "internal" | "external" | "" (empty string)
+        patternContext: internal
+        
         stages:
           # It is possible to create stages dynamically, defined at configuration level, currently used for Subscription Vending
           # - ${{ each collectionItem in parameters.deploymentSettings.collection }}:

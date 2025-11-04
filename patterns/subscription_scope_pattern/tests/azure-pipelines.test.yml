@@ -1,0 +1,37 @@
+name: $(Build.DefinitionName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+resources:
+  repositories:
+    - repository: release-engine-core # REPOSITORY ALIAS ###  MUST NOT  ### BE CHANGED
+      type: github
+      name: thecloudexplorers/release-engine-core # RELEASE ENGINE REPOSITORY ###  MUST NOT  ### BE CHANGED
+      endpoint: thecloudexplorers
+      ref: refs/tags/v1.8.0
+
+trigger:
+  branches:
+    include:
+      - users/*
+  paths:
+    include:
+      - patterns/templates/iac/subscription_scope_pattern/**
+
+pool: MSHosted-WorkloadsPool
+
+extends:
+  template: /patterns/subscription_scope_pattern/deployment-pattern.yml
+  parameters:
+    deploymentSettings:
+      configurationFilePath: /tests/_config
+
+      environments:
+        - name: development
+          dependsOn: build
+          displayName: Dev
+          afterBuild: true
+        - name: test
+          dependsOn: development
+          displayName: Test
+        - name: production
+          dependsOn: test
+          displayName: Prod

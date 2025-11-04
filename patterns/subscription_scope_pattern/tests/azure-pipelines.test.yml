@@ -22,7 +22,7 @@ extends:
   template: /patterns/subscription_scope_pattern/deployment-pattern.yml
   parameters:
     deploymentSettings:
-      configurationFilePath: /tests/_config
+      configurationFilePath: /patterns/subscription_scope_pattern/tests/_config
 
       environments:
         - name: development

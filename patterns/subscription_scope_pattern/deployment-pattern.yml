@@ -2,6 +2,13 @@ parameters:
   - name: deploymentSettings
     type: object
 
+variables:
+  # SPN of the lowest environment.
+  # It is used for validate the pipeline run, and will be overridden by the correct SPN of each environment on runtime
+  # Can be set on configuration level parameters or as environment variable in the pipeline execution context
+  - name: serviceConnection
+    value: IacServiceConnection 
+
 stages:
   - template: /pipelines/01-orchestrators/pattern.orchestrator.yml@release-engine-core
     parameters:

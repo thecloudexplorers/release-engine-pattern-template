@@ -14,7 +14,7 @@ trigger:
       - users/*
   paths:
     include:
-      - patterns/templates/iac/subscription_scope_pattern/**
+      - patterns/subscription_scope_pattern/**
 
 pool: MSHosted-WorkloadsPool
 

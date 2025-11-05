@@ -23,6 +23,7 @@ extends:
   parameters:
     deploymentSettings:
       configurationFilePath: /patterns/subscription_scope_pattern/tests/_config
+      configurationPipelineContext: internal
 
       environments:
         - name: development

@@ -23,7 +23,8 @@ extends:
   parameters:
     deploymentSettings:
       configurationFilePath: /patterns/subscription_scope_pattern/tests/_config
-      # configurationPipelineContext: internal
+      # Indicates if this is a test pipeline
+      # Must be set to test release-engine functionalities or patterns
       isTestPipeline: true
 
       environments:

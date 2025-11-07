@@ -34,7 +34,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: workload.bicep                
-                iacParameterFileName: ${{ parameters.deploymentSettings.iacParameterFileName }}
+                iacParameterFileName: subscription_scope_pattern.parameters.json
                 iacParameterFilesDirectory: /iac/
                 
                 # Use to override bicep parameters

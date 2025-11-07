@@ -33,7 +33,7 @@ stages:
                 displayName: Subscription Scope Example
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
-                iacMainFileName: workload.bicep                
+                iacMainFileName: subscription_scope_pattern.bicep
                 iacParameterFileName: subscription_scope_pattern.parameters.json
                 iacParameterFilesDirectory: /iac/
                 

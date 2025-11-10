@@ -8,7 +8,8 @@
     "tags": {
       "value": {
         "Environment": "#{environmentAbbreviation}#",
-        "Application": "#{applicationAbbreviation}#"
+        "Application": "#{applicationAbbreviation}#",
+        "ToDelete": "true"
       }
     }
   }

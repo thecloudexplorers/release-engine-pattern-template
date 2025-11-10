@@ -28,7 +28,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.prerequisite.bicep
-                iacParameterFileName: /parameters/multi_stage_pattern.prerequisite.parameters.json
+                iacParameterFileName: multi_stage_pattern.prerequisite.parameters.json
                 preRequisiteStage: true
 
           # Dependent Stage 1 - Depends on Prerequisite
@@ -39,7 +39,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.dependent.bicep
-                iacParameterFileName: /parameters/multi_stage_pattern.dependent1.parameters.json
+                iacParameterFileName: multi_stage_pattern.dependent1.parameters.json
                 dependsOn: prerequisite_stage
                 # lastInStage: true 
 
@@ -51,7 +51,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.dependent.bicep
-                iacParameterFileName: /parameters/multi_stage_pattern.dependent2.parameters.json
+                iacParameterFileName: multi_stage_pattern.dependent2.parameters.json
                 dependsOn: prerequisite_stage
                 # lastInStage: true
 
@@ -63,7 +63,7 @@ stages:
                 deploymentScope: Subscription
                 serviceConnection: $(serviceConnection)
                 iacMainFileName: multi_stage_pattern.dependent.bicep
-                iacParameterFileName: /parameters/multi_stage_pattern.dependent3.parameters.json
+                iacParameterFileName: multi_stage_pattern.dependent3.parameters.json
                 dependsOn: dependent_stage1
                 # lastInStage: true
 

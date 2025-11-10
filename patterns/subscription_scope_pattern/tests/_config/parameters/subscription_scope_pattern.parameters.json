@@ -9,7 +9,7 @@
       "value": {
         "Environment": "#{environmentAbbreviation}#",
         "Application": "#{applicationAbbreviation}#",
-        "ToDelete": "true"
+        "TestResource": "true"
       }
     }
   }

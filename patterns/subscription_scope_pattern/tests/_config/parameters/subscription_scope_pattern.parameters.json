@@ -3,12 +3,12 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "resourceGroupName": {
-      "value": "rg-#{applicationName}#-#{environmentAbbreviation}#"
+      "value": "#{applicationAbbreviation}#-#{environmentAbbreviation}#-rg001"
     },
     "tags": {
       "value": {
         "Environment": "#{environmentAbbreviation}#",
-        "Application": "#{applicationName}#"
+        "Application": "#{applicationAbbreviation}#"
       }
     }
   }

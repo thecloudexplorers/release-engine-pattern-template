@@ -1,0 +1,17 @@
+{
+  // Name of the Landing Zone
+  "landingZoneName": "Deployment Patterns",
+
+  // Abbreviation of the landing zone
+  // Allowed value: [a-z][0-9]{3}
+  "landingZoneAbbreviation": "ptn",
+
+  // Name of the Application deployed in the Landing Zone
+  "applicationName": "subscription-scope-pattern-test",
+
+  // Abbreviation of the Application Name
+  "applicationAbbreviation": "sspt",
+
+  "deploymentPattern": "subscription_scope_pattern_test",
+  "deploymentLocation": "westeurope"
+}

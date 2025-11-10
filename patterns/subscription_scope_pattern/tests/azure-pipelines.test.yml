@@ -16,6 +16,11 @@ trigger:
     include:
       - patterns/subscription_scope_pattern/**
 
+pr:
+  branches:
+    include:
+      - main
+
 pool: MSHosted-WorkloadsPool
 
 extends:

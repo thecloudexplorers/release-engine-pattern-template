@@ -7,8 +7,8 @@
     },
     "tags": {
       "value": {
-        "Environment": "#{environmentAbbreviation}#",
-        "Application": "#{applicationAbbreviation}#",
+        "Environment": "#{environmentName}#",
+        "Application": "#{applicationName}#",
         "TestResource": "true"
       }
     }

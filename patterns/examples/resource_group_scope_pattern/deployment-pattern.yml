@@ -16,7 +16,7 @@ stages:
         name: resource_group_scope_pattern
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}
-        patternArtifactsPath: /patterns/resource_group_scope_pattern
+        patternArtifactsPath: /patterns/examples/resource_group_scope_pattern
         stages:
           - infrastructure:
               iac:

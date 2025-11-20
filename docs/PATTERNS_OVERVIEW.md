@@ -5,7 +5,7 @@ This document provides a comprehensive overview of all available workload patter
 ## Pattern Catalog
 
 ### 1. Resource Group Scope Pattern ⭐ Basic
-**File**: `/patterns/resource_group_scope_pattern/`
+**File**: `/patterns/examples/resource_group_scope_pattern/`
 **Complexity**: Basic
 **Deployment Scope**: Resource Group
 
@@ -31,7 +31,7 @@ Demonstrates subscription-level resource deployment, creating Resource Groups th
 - **Best For**: Platform setup, environment preparation, governance foundations
 
 ### 3. Multi Stage Pattern ⭐⭐⭐ Advanced
-**File**: `/patterns/multi_stage_pattern/`
+**File**: `/patterns/examples/multi_stage_pattern/`
 **Complexity**: Advanced  
 **Deployment Scope**: Subscription
 

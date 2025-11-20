@@ -133,7 +133,7 @@ stages:
         name: multi_stage_pattern
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}
-        patternArtifactsPath: /patterns/multi_stage_pattern
+        patternArtifactsPath: /patterns/examples/multi_stage_pattern
         stages:
           # Prerequisite Stage - Runs First
           - infrastructure:
@@ -523,7 +523,7 @@ Consider these enhancements:
 # Multi-stage as prerequisite for application deployment
 stages:
   # Multi-stage infrastructure deployment
-  - template: /patterns/multi_stage_pattern/workload.yml@workload
+  - template: /patterns/examples/multi_stage_pattern/workload.yml@workload
     
   # Application deployment using created infrastructure
   - template: /patterns/application_pattern/workload.yml@workload

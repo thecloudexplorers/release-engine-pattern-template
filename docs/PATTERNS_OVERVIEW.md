@@ -18,7 +18,7 @@ A foundational pattern that demonstrates the simplest deployment scenario - a si
 - **Best For**: New teams, proof of concepts, standalone storage needs
 
 ### 2. Subscription Scope Pattern ⭐⭐ Intermediate  
-**File**: `/patterns/subscription_scope_pattern/`
+**File**: `/patterns/examples/subscription_scope_pattern/`
 **Complexity**: Intermediate
 **Deployment Scope**: Subscription
 

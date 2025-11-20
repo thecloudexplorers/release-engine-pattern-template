@@ -1,0 +1,8 @@
+variables:
+  environmentAbbreviation: dev
+  environmentName: development
+  deploymentLocation: westeurope
+  
+  # Required for resource group scoped deployments
+  # subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  resourceGroupName: '$(applicationAbbreviation)-$(environmentAbbreviation)-rg001'

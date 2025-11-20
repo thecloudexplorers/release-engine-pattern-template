@@ -18,10 +18,7 @@ stages:
         name: multi_stage_pattern
         configurationFilePath: ${{ parameters.deploymentSettings.configurationFilePath }}
         environments: ${{ parameters.deploymentSettings.environments }}
-        patternArtifactsPath: /patterns/templates/iac/multi_stage_pattern
-        # Indicates if this is an builtin pattern in the release-engine-core repo
-        # Options: "internal" | "external" | "" (empty string)
-        patternContext: internal
+        patternArtifactsPath: /patterns/examples/multi_stage_pattern
         isExternalPattern: false
         configurationPipelineContext: ${{ parameters.deploymentSettings.configurationPipelineContext }}
         stages:

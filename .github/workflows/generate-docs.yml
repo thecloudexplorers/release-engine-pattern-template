@@ -72,6 +72,13 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "docs: Update generated PDF and DOCX documentation [skip ci]"
+            # Create detailed commit message listing updated files
+            UPDATED_FILES=$(git diff --staged --name-only downloads/ | wc -l)
+            git commit -m "docs: Regenerate documentation exports (${UPDATED_FILES} files updated)
+
+Auto-generated PDF and DOCX documentation from latest markdown sources.
+Triggered by commit: ${GITHUB_SHA:0:7}
+
+[skip ci]"
             git push
           fi

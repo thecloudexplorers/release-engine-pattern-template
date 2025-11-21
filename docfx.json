@@ -1,0 +1,78 @@
+{
+  "metadata": [],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "README.md",
+          "docs/**/*.md",
+          "patterns/**/*.md"
+        ],
+        "exclude": [
+          "**/bin/**",
+          "**/obj/**",
+          "_site/**",
+          "**/node_modules/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "docs/images/**",
+          "patterns/**/images/**"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "Release Engine Workload Patterns",
+      "_appName": "Release Engine Patterns",
+      "_enableSearch": true
+    },
+    "template": [
+      "default",
+      "modern"
+    ],
+    "postProcessors": [],
+    "keepFileLink": false,
+    "disableGitFeatures": false
+  },
+  "pdf": {
+    "content": [
+      {
+        "files": [
+          "README.md"
+        ],
+        "dest": "downloads"
+      },
+      {
+        "files": [
+          "docs/PATTERNS_OVERVIEW.md"
+        ],
+        "dest": "downloads"
+      },
+      {
+        "files": [
+          "patterns/resource_group_scope_pattern/README.md"
+        ],
+        "dest": "downloads"
+      },
+      {
+        "files": [
+          "patterns/subscription_scope_pattern/README.md"
+        ],
+        "dest": "downloads"
+      },
+      {
+        "files": [
+          "patterns/multi_stage_pattern/README.md"
+        ],
+        "dest": "downloads"
+      }
+    ],
+    "wkhtmltopdf": {
+      "additionalArguments": "--enable-local-file-access"
+    }
+  }
+}

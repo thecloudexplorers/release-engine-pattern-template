@@ -1,0 +1,17 @@
+- name: Home
+  href: README.md
+- name: Architecture
+  href: docs/PATTERNS_OVERVIEW.md
+  items:
+  - name: Patterns Overview
+    href: docs/PATTERNS_OVERVIEW.md
+  - name: Downloads
+    href: docs/DOWNLOADS.md
+- name: Patterns
+  items:
+  - name: Resource Group Scope Pattern
+    href: patterns/resource_group_scope_pattern/README.md
+  - name: Subscription Scope Pattern
+    href: patterns/subscription_scope_pattern/README.md
+  - name: Multi Stage Pattern
+    href: patterns/multi_stage_pattern/README.md

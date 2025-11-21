@@ -1,0 +1,77 @@
+name: Generate Documentation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.md'
+      - 'scripts/generate-docs.sh'
+      - '.github/workflows/generate-docs.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.md'
+      - 'scripts/generate-docs.sh'
+      - '.github/workflows/generate-docs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+          pandoc --version
+      
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt-get install -y wkhtmltopdf
+          wkhtmltopdf --version
+      
+      - name: Install additional dependencies for PDF generation
+        run: |
+          sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-plain-generic
+      
+      - name: Generate documentation
+        run: |
+          bash scripts/generate-docs.sh
+      
+      - name: List generated files
+        run: |
+          echo "Generated documentation files:"
+          ls -lh downloads/
+      
+      - name: Upload documentation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: documentation-exports
+          path: downloads/
+          retention-days: 90
+      
+      - name: Commit generated documentation (main branch only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add downloads/
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: Update generated PDF and DOCX documentation [skip ci]"
+            git push
+          fi

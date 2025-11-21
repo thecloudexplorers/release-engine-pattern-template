@@ -1,5 +1,7 @@
 # Release Engine Workload Patterns (Template Repository)
 
+> 📥 **Download this documentation**: [PDF](downloads/README.pdf) | [DOCX](downloads/README.docx) | [All Downloads](docs/DOWNLOADS.md)
+
 ## 🏗️ Repository Overview
 
 This repository serves as the **Abstraction Layer Template** in the Release Engine three-tier solution. It contains reusable workload patterns that define "how" infrastructure and applications are deployed through Infrastructure as Code (Bicep) templates and pipeline configurations.
@@ -43,6 +45,7 @@ patterns/{pattern_name}/
 - **[Comprehensive Patterns Overview](./docs/PATTERNS_OVERVIEW.md)** - Detailed comparison, selection guide, and technical architecture
 - **Individual Pattern READMEs** - Complete usage instructions, parameters, and examples for each pattern
 - **[AI Assistant Instructions](./AGENTS.md)** - Detailed guidance for AI agents working with patterns
+- **[📥 Documentation Downloads](./docs/DOWNLOADS.md)** - Download all documentation in PDF and DOCX formats
 
 ## 🚀 Quick Start (Using as Template)
 
@@ -363,6 +366,42 @@ extends:
 - **Resource Dependencies**: Minimize unnecessary dependencies between resources
 - **Deployment Speed**: Optimize for fast deployment times
 - **Error Recovery**: Design patterns for easy rollback and recovery
+
+## 📥 Documentation Export Feature
+
+All documentation in this repository is available for download in PDF and DOCX formats, making it easy to:
+- **Share** documentation with team members offline
+- **Archive** documentation for compliance and audit purposes
+- **Print** documentation for workshops and training sessions
+- **Customize** DOCX files with your organization's branding
+
+### Available Exports
+
+Visit the **[Documentation Downloads](./docs/DOWNLOADS.md)** page to access:
+- Repository overview (README)
+- Comprehensive patterns guide (PATTERNS_OVERVIEW)
+- Individual pattern documentation (all three patterns)
+
+### How It Works
+
+1. **Automatic Generation**: Documents are automatically regenerated on every push to main branch
+2. **Tools Used**: 
+   - DocFX for website generation
+   - Pandoc for DOCX generation (Microsoft Word format)
+   - wkhtmltopdf for high-quality PDF generation
+3. **CI/CD Integration**: GitHub Actions workflow handles the entire generation process
+4. **Always Current**: Exports stay synchronized with the latest documentation
+
+### Manual Generation
+
+To generate documents locally:
+
+```bash
+# Requires Pandoc and wkhtmltopdf
+bash scripts/generate-docs.sh
+```
+
+See [docs/DOWNLOADS.md](./docs/DOWNLOADS.md) for installation instructions and more details.
 
 ## 📞 Support and Resources
 

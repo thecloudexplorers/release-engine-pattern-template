@@ -1,5 +1,7 @@
 # Multi Stage Pattern
 
+> 📥 **Download this documentation**: [PDF](../../downloads/multi_stage_pattern.pdf) | [DOCX](../../downloads/multi_stage_pattern.docx) | [All Downloads](../../docs/DOWNLOADS.md)
+
 ## Overview
 
 The Multi Stage Pattern demonstrates the most sophisticated deployment capability in the Release Engine framework. It orchestrates complex, multi-stage deployments with dependencies between stages, allowing for advanced scenarios like prerequisite infrastructure, followed by multiple dependent deployments that can run in parallel or sequence.

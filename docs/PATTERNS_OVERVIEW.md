@@ -1,5 +1,7 @@
 # Workload Patterns Overview
 
+> 📥 **Download this documentation**: [PDF](../downloads/PATTERNS_OVERVIEW.pdf) | [DOCX](../downloads/PATTERNS_OVERVIEW.docx) | [All Downloads](DOWNLOADS.md)
+
 This document provides a comprehensive overview of all available workload patterns in the Release Engine framework. Each pattern represents a different level of complexity and addresses specific deployment scenarios.
 
 ## Pattern Catalog
@@ -343,6 +345,32 @@ When creating new patterns based on these examples:
 - ✅ **Output Documentation**: All outputs must be documented  
 - ✅ **README Completeness**: Comprehensive documentation required
 - ✅ **Testing Evidence**: Deployment testing in multiple environments
+
+## 📥 Documentation Exports
+
+All architecture documentation is available for download in PDF and DOCX formats for offline access, printing, and sharing.
+
+### Complete Documentation Suite
+
+| Document | Description | Formats |
+|----------|-------------|---------|
+| **Repository Overview** | Complete overview of the template repository | [PDF](../downloads/README.pdf) · [DOCX](../downloads/README.docx) |
+| **Patterns Overview** | This comprehensive guide | [PDF](../downloads/PATTERNS_OVERVIEW.pdf) · [DOCX](../downloads/PATTERNS_OVERVIEW.docx) |
+| **Resource Group Scope Pattern** | Simple pattern documentation | [PDF](../downloads/resource_group_scope_pattern.pdf) · [DOCX](../downloads/resource_group_scope_pattern.docx) |
+| **Subscription Scope Pattern** | Intermediate pattern documentation | [PDF](../downloads/subscription_scope_pattern.pdf) · [DOCX](../downloads/subscription_scope_pattern.docx) |
+| **Multi Stage Pattern** | Advanced pattern documentation | [PDF](../downloads/multi_stage_pattern.pdf) · [DOCX](../downloads/multi_stage_pattern.docx) |
+
+### 📋 Download All Documentation
+
+Visit the **[Documentation Downloads](DOWNLOADS.md)** page for:
+- Detailed information about each document
+- Instructions for regenerating documents locally
+- Notes on format-specific features and limitations
+- Information about automatic document generation
+
+### 🔄 Automatic Updates
+
+These documents are automatically regenerated whenever documentation changes are pushed to the main branch, ensuring you always have access to the latest version.
 
 ---
 

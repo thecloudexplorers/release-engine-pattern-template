@@ -1,5 +1,7 @@
 # Resource Group Scope Pattern
 
+> 📥 **Download this documentation**: [PDF](../../downloads/resource_group_scope_pattern.pdf) | [DOCX](../../downloads/resource_group_scope_pattern.docx) | [All Downloads](../../docs/DOWNLOADS.md)
+
 ## Overview
 The Resource Group Scope Pattern is the simplest deployment pattern in the Release Engine framework. It demonstrates how to deploy a single Azure resource (storage account) within a resource group using Azure Verified Modules (AVM) with minimal configuration.
 

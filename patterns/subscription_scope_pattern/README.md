@@ -1,5 +1,7 @@
 # Subscription Scope Pattern
 
+> 📥 **Download this documentation**: [PDF](../../downloads/subscription_scope_pattern.pdf) | [DOCX](../../downloads/subscription_scope_pattern.docx) | [All Downloads](../../docs/DOWNLOADS.md)
+
 ## Overview
 
 The Subscription Scope Pattern demonstrates how to deploy resources at the Azure subscription level using the Release Engine framework. This pattern creates a Resource Group, which serves as a foundation for other resources and patterns.

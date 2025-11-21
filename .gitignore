@@ -1,1 +1,8 @@
 how-to-consume-alz-platform-workload.md
+
+# DocFX build outputs
+_site/
+*.html
+
+# Exclude intermediate HTML files from doc generation
+downloads/*.html
